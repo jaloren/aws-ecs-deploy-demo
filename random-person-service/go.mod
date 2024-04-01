@@ -1,4 +1,4 @@
-module aws-ecs-deploy-demo
+module random-person-service
 
 go 1.22.0
 

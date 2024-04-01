@@ -12,7 +12,7 @@ type Person struct {
 }
 
 func personsHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/persons" {
+	if r.URL.Path != "/person" {
 		http.Error(w, "404 not found.", http.StatusNotFound)
 		return
 	}
@@ -31,5 +31,7 @@ func personsHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/person", personsHandler)
-	http.ListenAndServe(":8080", nil)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
 }
